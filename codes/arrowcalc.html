@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Calculator</h1>
+    <h3>Addition: <span id="response"></span></h3>
+    <h3>Subtraction: <span id="res"></span></h3>
+    <h3>Product: <span id="re"></span></h3>
+    <h3>Quotient (Floor Division): <span id="respon"></span></h3>
+    <h3>Division: <span id="respond"></span></h3>
+    <h3>Remainder: <span id="resp"></span></h3>
+
+    <script>
+        var add = (a, b) => a + b;
+        var sub = (a, b) => a - b;
+        var pro = (a, b) => a * b;
+        var quo = (a, b) => b !== 0 ? Math.floor(a / b) : "Division by zero!";
+        var div = (a, b) => b !== 0 ? (a / b).toFixed(2) : "Division by zero!";
+        var remain = (a, b) => a % b;
+        var num1 = parseFloat(prompt("Enter the first number:"));
+        var num2 = parseFloat(prompt("Enter the second number:"));
+        document.getElementById("response").textContent = add(num1, num2);
+        document.getElementById("res").textContent = sub(num1, num2);
+        document.getElementById("re").textContent = pro(num1, num2);
+        document.getElementById("respon").textContent = quo(num1, num2);  
+        document.getElementById("respond").textContent = div(num1, num2);
+        document.getElementById("resp").textContent = remain(num1, num2);
+    </script>
+</body>
+</html>

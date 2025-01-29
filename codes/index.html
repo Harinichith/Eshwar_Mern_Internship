@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemons Distribution</title>
+</head>
+<body>
+    <script>
+        function distributeLemons(lemonsInHand) {
+            let god1 = 7, god2 = 7, shortage = 0;
+            
+            // Display the case number and the number of lemons in hand
+            console.log(`Case: Number of lemons in hand: ${lemonsInHand}`);
+            
+            if (lemonsInHand < god1) {
+                // Case when not enough lemons for god1
+                console.log("god1=7 offered");
+                console.log("god2=need 7");
+                console.log("god1=need 7");
+                console.log("shortage:14");
+            } else {
+                let remaining = lemonsInHand;
+
+                // God1 offers 7 lemons
+                console.log("god1=7 offered");
+                remaining -= god1;
+
+                if (remaining >= god2) {
+                    // God2 offers 7 lemons
+                    console.log("god2=7 offered");
+                    remaining -= god2;
+
+                    if (remaining >= god1) {
+                        // God1 offers 7 more lemons
+                        console.log("god1=7 offered");
+                        remaining -= god1;
+
+                        if (remaining > 0) {
+                            console.log("sufficient");
+                        }
+                    } else if (remaining > 0) {
+                        console.log(`god1=having ${remaining} need ${god1 - remaining}`);
+                        shortage = god1 - remaining;
+                        console.log(`shortage:${shortage}`);
+                    }
+                } else if (remaining > 0) {
+                    console.log(`god2=need ${god2 - remaining}`);
+                    console.log(`shortage:${god2 - remaining}`);
+                }
+            }
+            console.log(""); // Adding an empty line between cases for clarity
+        }
+
+        // Get the number of lemons from the user via prompt
+        let lemonsInHand = parseInt(prompt("Enter the number of lemons in hand:"), 10);
+
+        // Validate the user input
+        if (isNaN(lemonsInHand) || lemonsInHand <= 0) {
+            console.log("Please enter a valid positive number of lemons.");
+        } else {
+            // Call the function with the user's input
+            distributeLemons(lemonsInHand);
+        }
+    </script>
+</body>
+</html>

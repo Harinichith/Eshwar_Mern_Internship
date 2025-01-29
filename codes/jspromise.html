@@ -1,0 +1,20 @@
+<html>
+<script>
+let thatkalbooking=new Promise((resolve,reject)=>{
+let booking=true
+if(booking)
+resolve(2000)
+else
+reject(2000)
+}
+)
+thatkalbooking.then((amt)=>console.log(`ok transfered ${amt}`))
+.catch(()=>console.log("not ok"))
+function success(){
+console.log("Thanks I send Money")
+}
+function failure(){
+console.log("Thanks For Trying")
+}
+</script>
+</html>
